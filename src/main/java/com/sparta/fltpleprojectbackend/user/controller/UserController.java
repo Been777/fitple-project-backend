@@ -4,7 +4,7 @@ import com.sparta.fltpleprojectbackend.common.CommonResponse;
 import com.sparta.fltpleprojectbackend.jwtutil.JwtUtil;
 import com.sparta.fltpleprojectbackend.security.UserDetailsImpl;
 import com.sparta.fltpleprojectbackend.user.dto.ResponseMessage;
-import com.sparta.fltpleprojectbackend.user.dto.UpdatePasswordRequest;
+import com.sparta.fltpleprojectbackend.user.dto.UpdateUserPasswordRequest;
 import com.sparta.fltpleprojectbackend.user.dto.UpdateUserProfileRequest;
 import com.sparta.fltpleprojectbackend.user.dto.UserSignupRequest;
 import com.sparta.fltpleprojectbackend.user.dto.ReadUserResponse;
@@ -105,7 +105,7 @@ public class UserController {
   @PutMapping("/profile/users/password")
   public ResponseEntity<?> updateUserPassword (
     @AuthenticationPrincipal UserDetailsImpl userDetails,
-    @Valid @RequestBody UpdatePasswordRequest userRequest) {
+    @Valid @RequestBody UpdateUserPasswordRequest userRequest) {
     // TODO: 리스폰 형식 컨벤션에 맞추기
     userService.updateUserPassword(userRequest, userDetails);
 

@@ -125,6 +125,8 @@ public class User {
     this.mainAddress = userRequest.getMainAddress();
     this.detailedAddress = userRequest.getDetailedAddress();
     this.userPicture = userRequest.getUserPicture();
+    this.email = userRequest.getEmail();
+    this.phoneNumber = userRequest.getPhoneNumber();
     this.updatedAt = LocalDateTime.now();
   }
 }

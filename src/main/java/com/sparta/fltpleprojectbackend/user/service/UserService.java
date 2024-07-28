@@ -4,7 +4,7 @@ import com.sparta.fltpleprojectbackend.enums.ErrorType;
 import com.sparta.fltpleprojectbackend.enums.Role;
 import com.sparta.fltpleprojectbackend.exception.CustomException;
 import com.sparta.fltpleprojectbackend.security.UserDetailsImpl;
-import com.sparta.fltpleprojectbackend.user.dto.UpdatePasswordRequest;
+import com.sparta.fltpleprojectbackend.user.dto.UpdateUserPasswordRequest;
 import com.sparta.fltpleprojectbackend.user.dto.UpdateUserProfileRequest;
 import com.sparta.fltpleprojectbackend.user.dto.UserSignupRequest;
 import com.sparta.fltpleprojectbackend.user.dto.ReadUserResponse;
@@ -101,7 +101,7 @@ public class UserService {
    *
    * @param userDetails 유저 정보
    * @param userRequest 새 프로필 정보
-   * @throws UserException 유저를 찾을 수 없는 경우 발생
+   * @throws UserException 유저를 찾을 수 없는 경우 발생, 비밀번호 확인이 맞지 않으면 발생
    */
   @Transactional
   public void updateUserProfile(UpdateUserProfileRequest userRequest, UserDetailsImpl userDetails) {
@@ -120,10 +120,10 @@ public class UserService {
    *
    * @param userDetails 유저 정보
    * @param userRequest 구, 새 비밀번호 정보
-   * @throws UserException 유저를 찾을 수 없는 경우 발생
+   * @throws UserException 유저를 찾을 수 없는 경우 발생, 비밀번호 확인이 맞지 않으면 발생
    */
   @Transactional
-  public void updateUserPassword(UpdatePasswordRequest userRequest, UserDetailsImpl userDetails) {
+  public void updateUserPassword(UpdateUserPasswordRequest userRequest, UserDetailsImpl userDetails) {
     Optional<User> userOptional = userRepository.findByAccountIdAndStatus(userDetails.getUsername(), "ACTIVE");
     User user = userOptional.orElseThrow(() -> new UserException(ErrorType.NOT_FOUND_USER));
 

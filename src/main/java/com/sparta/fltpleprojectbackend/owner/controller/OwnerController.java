@@ -9,8 +9,6 @@ import com.sparta.fltpleprojectbackend.owner.dto.UpdateOwnerProfileRequest;
 import com.sparta.fltpleprojectbackend.owner.service.OwnerService;
 import com.sparta.fltpleprojectbackend.security.UserDetailsImpl;
 import com.sparta.fltpleprojectbackend.user.dto.ResponseMessage;
-import com.sparta.fltpleprojectbackend.user.dto.UpdatePasswordRequest;
-import com.sparta.fltpleprojectbackend.user.dto.UpdateUserProfileRequest;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
